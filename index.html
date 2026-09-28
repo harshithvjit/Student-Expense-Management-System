@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pennywise | Student Expense Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- TOP NAVIGATION -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-mark">P</div>
+
+            <div>
+                <strong>Pennywise</strong>
+                <small>Student Expense Manager</small>
+            </div>
+        </div>
+
+        <nav class="navigation">
+            <a class="selected">Overview</a>
+            <a>Expenses</a>
+            <a>Budget</a>
+            <a>Analytics</a>
+        </nav>
+
+        <div class="profile">
+            <div class="profile-avatar">SF</div>
+
+            <div>
+                <strong>Harshith</strong>
+                <small>Student Account</small>
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <span class="tag">SEPTEMBER 2026</span>
+
+            <h1>
+                Know where<br>
+                your money goes.
+            </h1>
+
+            <p>
+                Keep track of everyday spending, manage your
+                student budget and make smarter financial decisions.
+            </p>
+
+            <div class="hero-actions">
+
+                <button
+                    class="primary-button"
+                    onclick="document.getElementById('expenseForm').scrollIntoView({behavior:'smooth'})"
+                >
+                    + Add Expense
+                </button>
+
+                <span class="updated">
+                    ● Data updated just now
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUDGET CIRCLE -->
+
+        <div class="budget-card">
+
+            <div class="budget-header">
+                <span>MONTHLY BUDGET</span>
+                <strong>₹2,000</strong>
+            </div>
+
+            <div class="circle-wrapper">
+
+                <div class="budget-circle">
+
+                    <div class="circle-content">
+                        <strong>35%</strong>
+                        <span>used</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="budget-footer">
+
+                <div>
+                    <span>Spent</span>
+                    <strong>₹700</strong>
+                </div>
+
+                <div>
+                    <span>Remaining</span>
+                    <strong>₹1,300</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- OVERVIEW STRIP -->
+
+    <section class="overview">
+
+        <div class="overview-item">
+
+            <span>THIS MONTH</span>
+
+            <strong>₹700</strong>
+
+            <small>Total spending</small>
+
+        </div>
+
+
+        <div class="overview-item">
+
+            <span>DAILY AVERAGE</span>
+
+            <strong>₹140</strong>
+
+            <small>Average expense</small>
+
+        </div>
+
+
+        <div class="overview-item">
+
+            <span>TRANSACTIONS</span>
+
+            <strong>04</strong>
+
+            <small>Recorded expenses</small>
+
+        </div>
+
+
+        <div class="overview-item highlight">
+
+            <span>BUDGET STATUS</span>
+
+            <strong>Healthy</strong>
+
+            <small>65% budget available</small>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+
+    <section class="workspace">
+
+
+        <!-- EXPENSE FORM -->
+
+        <div class="expense-form" id="expenseForm">
+
+            <div class="section-title">
+
+                <div>
+                    <span>01 / NEW ENTRY</span>
+                    <h2>Record an expense</h2>
+                </div>
+
+                <div class="plus-symbol">+</div>
+
+            </div>
+
+
+            <div class="fields">
+
+                <div class="field full">
+
+                    <label>Student Name</label>
+
+                    <input
+                        type="text"
+                        id="studentName"
+                        placeholder="e.g. Sofia Fatima"
+                    >
+
+                </div>
+
+
+                <div class="field full">
+
+                    <label>What did you spend on?</label>
+
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="e.g. College lunch"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Category</label>
+
+                    <select id="category">
+
+                        <option value="">Choose</option>
+                        <option>Food</option>
+                        <option>Transport</option>
+                        <option>Education</option>
+                        <option>Shopping</option>
+                        <option>Entertainment</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Amount</label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="₹ 0"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Date</label>
+
+                    <input
+                        type="date"
+                        id="date"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Paid using</label>
+
+                    <select id="payment">
+
+                        <option value="">Choose</option>
+                        <option>UPI</option>
+                        <option>Cash</option>
+                        <option>Debit Card</option>
+                        <option>Credit Card</option>
+                        <option>Other</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button class="save-button" onclick="addExpense()">
+                Save Expense
+                <span>↗</span>
+            </button>
+
+
+            <div id="message" class="message hidden"></div>
+
+        </div>
+
+
+        <!-- SPENDING CATEGORIES -->
+
+        <div class="categories">
+
+            <div class="section-title">
+
+                <div>
+                    <span>02 / BREAKDOWN</span>
+                    <h2>Where it goes</h2>
+                </div>
+
+                <span class="month-label">SEP</span>
+
+            </div>
+
+
+            <div class="category-list">
+
+
+                <div class="category-row">
+
+                    <div class="category-icon food">🍜</div>
+
+                    <div class="category-info">
+
+                        <div>
+                            <strong>Food</strong>
+                            <span>21%</span>
+                        </div>
+
+                        <div class="category-line">
+                            <div style="width:21%"></div>
+                        </div>
+
+                    </div>
+
+                    <strong class="category-price">₹150</strong>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <div class="category-icon travel">🚌</div>
+
+                    <div class="category-info">
+
+                        <div>
+                            <strong>Transport</strong>
+                            <span>14%</span>
+                        </div>
+
+                        <div class="category-line travel-line">
+                            <div style="width:14%"></div>
+                        </div>
+
+                    </div>
+
+                    <strong class="category-price">₹100</strong>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <div class="category-icon education">📖</div>
+
+                    <div class="category-info">
+
+                        <div>
+                            <strong>Education</strong>
+                            <span>29%</span>
+                        </div>
+
+                        <div class="category-line education-line">
+                            <div style="width:29%"></div>
+                        </div>
+
+                    </div>
+
+                    <strong class="category-price">₹200</strong>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <div class="category-icon shopping">✦</div>
+
+                    <div class="category-info">
+
+                        <div>
+                            <strong>Shopping</strong>
+                            <span>36%</span>
+                        </div>
+
+                        <div class="category-line shopping-line">
+                            <div style="width:36%"></div>
+                        </div>
+
+                    </div>
+
+                    <strong class="category-price">₹250</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="tip">
+
+                <span>💡</span>
+
+                <div>
+                    <strong>Spending tip</strong>
+                    <p>
+                        Education and shopping currently make up
+                        most of your recorded expenses.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TRANSACTIONS -->
+
+    <section class="transactions">
+
+        <div class="transaction-heading">
+
+            <div>
+                <span>03 / HISTORY</span>
+                <h2>Recent transactions</h2>
+            </div>
+
+            <button class="view-button">
+                View all →
+            </button>
+
+        </div>
+
+
+        <div class="transaction-list" id="expenseTable">
+
+
+            <div class="transaction">
+
+                <div class="transaction-left">
+
+                    <div class="transaction-icon food">
+                        🍜
+                    </div>
+
+                    <div>
+                        <strong>College Lunch</strong>
+                        <span>Food · Today</span>
+                    </div>
+
+                </div>
+
+                <div class="transaction-right">
+
+                    <strong>− ₹150</strong>
+
+                    <span class="recorded">
+                        Recorded
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="transaction">
+
+                <div class="transaction-left">
+
+                    <div class="transaction-icon travel">
+                        🚌
+                    </div>
+
+                    <div>
+                        <strong>Bus Pass</strong>
+                        <span>Transport · Today</span>
+                    </div>
+
+                </div>
+
+                <div class="transaction-right">
+
+                    <strong>− ₹100</strong>
+
+                    <span class="recorded">
+                        Recorded
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="transaction">
+
+                <div class="transaction-left">
+
+                    <div class="transaction-icon education">
+                        📖
+                    </div>
+
+                    <div>
+                        <strong>Study Material</strong>
+                        <span>Education · Yesterday</span>
+                    </div>
+
+                </div>
+
+                <div class="transaction-right">
+
+                    <strong>− ₹200</strong>
+
+                    <span class="recorded">
+                        Recorded
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="transaction">
+
+                <div class="transaction-left">
+
+                    <div class="transaction-icon shopping">
+                        ✦
+                    </div>
+
+                    <div>
+                        <strong>College Shopping</strong>
+                        <span>Shopping · Yesterday</span>
+                    </div>
+
+                </div>
+
+                <div class="transaction-right">
+
+                    <strong>− ₹250</strong>
+
+                    <span class="recorded">
+                        Recorded
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <strong>PENNYWISE</strong>
+
+        <span>
+            Student Expense Management System · DevOps Lab
+        </span>
+
+        <span>
+            2026
+        </span>
+
+    </footer>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
